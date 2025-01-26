@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Development with JavaScript</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #2B32B2, #1488CC);
+            color: #fff;
+            text-align: left; 
+            font-size: 25px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto; 
+            padding: 100px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .code-container {
+            max-width: 600px;
+            margin: 0 auto 50px; 
+            padding: 20px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #fff;
+        }
+
+        .code-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+
+        code {
+            display: block;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            color: #fff;
+            margin-left: 0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Web Development with JavaScript</h1>
+        <p>Any user must find a website engaging and interactive. JavaScript is the technology that makes this possible. HTML and CSS are frequently used to complement it.</p>
+        <p>JavaScript is an interpretable, high-level, dynamic, asynchronous programming language that is mostly used for client-side web development. It is a technology that is necessary to create contemporary online apps. Among other capabilities, JavaScript facilitates developers' ability to manage user input, interface with servers to retrieve and deliver data asynchronously, and edit and interact with HTML and CSS dynamically. Because JavaScript is asynchronous, it can handle tasks like data retrieving from servers without interfering with other scripts running. It has a large ecosystem of frameworks and tools, like React, Angular, Vue.js, and Node.js, that make web development processes easier and more efficient.</p>
+        <p>JavaScript frameworks are groups of libraries that contain JavaScript code. These frameworks serve as foundational templates for software applications. One of the main characteristics of JavaScript frameworks is that they are built around the Model-View-Controller (MVC) design pattern.</p>
+        <p>There are many JavaScript framework libraries available for software developers to work with. Each is unique in their own way, while many will do some of the same things, but often, differently. Some of the major JavaScript frameworks are:</p>
+        <ul>
+            <li>AngularJS: An open-source framework used for developing single-page applications. Angular uses data binding and supports dynamic rendering.</li>
+            <li>React: A reusable framework used for building interactive user interfaces. It has reusable components, making a website or application easier to develop.</li>
+            <li>Vue.js: An open-source JavaScript framework that is a progressive front-end framework. It uses a structural pattern that separates the GUI from the model's business logic.</li>
+            <li>Node.js: A backend framework used for creating scalable network applications. It consists of event-driven I/O and works on cross platforms.</li>
+        </ul>
+    </div>
+
+    <div class="code-container">
+        <h2 class="code-title">JavaScript Example Code</h2>
+        <code>
+        const button = document.querySelector("button");
+
+        button.addEventListener("click", updateName);
+        function updateName() {
+              const name = prompt("Enter a new name");
+              button.textContent = `Player 1: ${name}`;
+            }
+        </code>
+    </div>
+</body>
+</html>

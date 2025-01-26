@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Quiz</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #2B32B2, #1488CC);
+            color: #fff;
+            text-align: left;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .score-container {
+            display: none;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #score, #answers {
+            margin-top: 20px;
+        }
+
+        #answers p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Web Development Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. JavaScript is built around which framework?</p>
+                <input type="radio" name="q1" value="a">a) MVC<br>
+                <input type="radio" name="q1" value="b">b) HVB<br>
+                <input type="radio" name="q1" value="c">c) CVB<br>
+            </div>
+            <div class="question">
+                <p>2. This feature helps make a webpage interactive:</p>
+                <input type="radio" name="q2" value="a">a) HTML<br>
+                <input type="radio" name="q2" value="b">b) CSS<br>
+                <input type="radio" name="q2" value="c">c) JavaScript<br>
+            </div>
+            <div class="question">
+                <p>3. Which JavaScript framework is known for its use in developing single-page applications?</p>
+                <input type="radio" name="q3" value="a">a) React<br>
+                <input type="radio" name="q3" value="b">b) Angular<br>
+                <input type="radio" name="q3" value="c">c) Node<br>
+            </div>
+            <div class="question">
+                <p>4. Node is which kind of framework?</p>
+                <input type="radio" name="q4" value="a">a) Frontend<br>
+                <input type="radio" name="q4" value="b">b) Backend<br>
+                <input type="radio" name="q4" value="c">c) Full Stack<br>
+            </div>
+            <div class="question">
+                <p>5. What does the acronym "HTTP" stand for?</p>
+                <input type="radio" name="q5" value="a">a) Hyper Transfer Text Protocol<br>
+                <input type="radio" name="q5" value="b">b) Hypertext Transfer Protocol<br>
+                <input type="radio" name="q5" value="c">c) Hyperlink Text Transfer Protocol<br>
+            </div>
+            <div class="question">
+                <p>6. What is one capability of JavaScript due to its asynchronous nature?</p>
+                <input type="radio" name="q6" value="a">a) It cannot handle tasks like data retrieval from servers.<br>
+                <input type="radio" name="q6" value="b">b) It waits for API responses before executing other scripts.<br>
+                <input type="radio" name="q6" value="c">c) It can handle tasks like data retrieval from servers without interfering with other scripts running.<br>
+            </div>
+            <div class="question">
+                <p>7. What is the main purpose of a JavaScript framework like AngularJS?</p>
+                <input type="radio" name="q7" value="a">a) To handle server-side rendering<br>
+                <input type="radio" name="q7" value="b">b) To provide reusable components for building single-page applications<br>
+                <input type="radio" name="q7" value="c">c) To stylize the HTML page<br>
+            </div>
+            <div class="question">
+                <p>8. Which of the following is NOT a major JavaScript framework?</p>
+                <input type="radio" name="q8" value="a">a) DynamoDB<br>
+                <input type="radio" name="q8" value="b">b) React<br>
+                <input type="radio" name="q8" value="c">c) Vue<br>
+            </div>
+            <div class="question">
+                <p>9. JavaScript frameworks are primarily used for:</p>
+                <input type="radio" name="q9" value="a">a) Both server-side and client-side development<br>
+                <input type="radio" name="q9" value="b">b) For Frontend development<br>
+                <input type="radio" name="q9" value="c">c) For backend development<br>
+            </div>
+            <div class="question">
+                <p>10. This framework separates GUI from the model's business logic.</p>
+                <input type="radio" name="q10" value="a">a) Vue<br>
+                <input type="radio" name="q10" value="b">b) React<br>
+                <input type="radio" name="q10" value="c">c) Angular<br>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="score-container">
+        <h1>Quiz Score and Answers</h1>
+        <div id="score"></div>
+        <div id="answers"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const quizForm = document.getElementById('quiz-form');
+            const scoreContainer = document.getElementById('score');
+            const answersContainer = document.getElementById('answers');
+
+            const questions = [
+            {
+                question: '1. JavaScript is built around which framework?',
+                answer: 'c'
+            },
+            {
+                question: '2. This feature helps make a webpage interactive:',
+                answer: 'c'
+            },
+            {
+                question: '3. Which JavaScript framework is known for its use in developing single-page applications?',
+                answer: 'a'
+            },
+            {
+                question: '4. Node is which kind of framework?',
+                answer: 'b'
+            },
+            {
+                question: '5. What does the acronym "HTTP" stand for?',
+                answer: 'b'
+            },
+            {
+                question: '6. What is one capability of JavaScript due to its asynchronous nature?',
+                answer: 'c'
+            },
+            {
+                question: '7. What is the main purpose of a JavaScript framework like AngularJS?',
+                answer: 'b'
+            },
+            {
+                question: '8. Which of the following is NOT a major JavaScript framework?',
+                answer: 'a'
+            },
+            {
+                question: '9. JavaScript frameworks are primarily used for:',
+                answer: 'b'
+            },
+            {
+                question: '10. This framework separates GUI from the model\'s business logic.',
+                answer: 'c'
+            }
+        ];
+
+            quizForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                let score = 0;
+
+                for (let i = 0; i < questions.length; i++) {
+                    const selectedAnswer = document.querySelector(`input[name=q${i + 1}]:checked`);
+                    if (selectedAnswer) {
+                        const answer = selectedAnswer.value;
+                        if (answer === questions[i].answer) {
+                            score++;
+                        }
+                    }
+                }
+
+                // Display score
+                scoreContainer.innerHTML = `<p>Your score: ${score} out of ${questions.length}</p>`;
+
+                // Display answers
+                answersContainer.innerHTML = '<h2>Correct Answers:</h2>';
+                questions.forEach((question, index) => {
+                    answersContainer.innerHTML += `<p>${question.question} Correct answer is ${question.answer.toUpperCase()}</p>`;
+                });
+
+                // Show score and answers page
+                document.querySelector('.score-container').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
